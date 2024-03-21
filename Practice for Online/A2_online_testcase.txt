@@ -1,0 +1,6 @@
+#define num 1000
+#define NICE 'N'
+#define NIC '\t'
+#define PI 3.1415
+#define num 3.48E20
+#define no "No\ta"
