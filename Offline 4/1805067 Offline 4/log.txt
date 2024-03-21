@@ -1,0 +1,740 @@
+Line 1: type_specifier : INT
+
+int
+
+Line 1: declaration_list : ID LTHIRD CONST_INT RTHIRD
+
+d[3]
+
+Line 1: declaration_list : declaration_list COMMA ID
+
+d[3],e
+
+Line 1: declaration_list : declaration_list COMMA ID
+
+d[3],e,f
+
+Line 1: var_declaration : type_specifier declaration_list SEMICOLON
+
+int d[3],e,f;
+
+Line 1: unit : var_declaration
+
+int d[3],e,f;
+
+Line 1: program : unit
+
+int d[3],e,f;
+
+Line 2: type_specifier : INT
+
+int
+
+Line 2: type_specifier : INT
+
+int
+
+Line 2: parameter_list : type_specifier ID
+
+int a
+
+Line 2: type_specifier : INT
+
+int
+
+Line 2: parameter_list : parameter_list COMMA type_specifier ID
+
+int a,int b
+
+Line 3: variable : ID
+
+e
+
+Line 3: variable : ID
+
+a
+
+Line 3: factor : variable
+
+a
+
+Line 3: unary_expression : factor
+
+a
+
+Line 3: term : unary_expression
+
+a
+
+Line 3: simple_expression : term
+
+a
+
+Line 3: variable : ID
+
+b
+
+Line 3: factor : variable
+
+b
+
+Line 3: unary_expression : factor
+
+b
+
+Line 3: term : unary_expression
+
+b
+
+Line 3: simple_expression : simple_expression ADDOP term
+
+a+b
+
+Line 3: rel_expression : simple_expression
+
+a+b
+
+Line 3: logic_expression : rel_expression
+
+a+b
+
+Line 3: expression : variable ASSIGNOP logic_expression
+
+e=a+b
+
+Line 3: expression_statement : expression SEMICOLON
+
+e=a+b;
+
+Line 3: statement : expression_statement
+
+e=a+b;
+
+Line 3: statements : statement
+
+e=a+b;
+
+Line 4: variable : ID
+
+e
+
+Line 4: factor : variable
+
+e
+
+Line 4: unary_expression : factor
+
+e
+
+Line 4: term : unary_expression
+
+e
+
+Line 4: simple_expression : term
+
+e
+
+Line 4: rel_expression : simple_expression
+
+e
+
+Line 4: logic_expression : rel_expression
+
+e
+
+Line 4: expression : logic_expression
+
+e
+
+Line 4: statement : RETURN expression SEMICOLON
+
+return e;
+
+Line 4: statements : statements statement
+
+e=a+b;
+return e;
+
+Line 5: compound_statement : LCURL statements RCURL
+
+{
+e=a+b;
+return e;
+}
+
+ScopeTable # 1.1
+7 --> <a, ID> 
+8 --> <b, ID> 
+
+ScopeTable # 1
+10 --> <d, ID> 
+11 --> <e, ID> 
+12 --> <f, ID> 
+13 --> <g, ID> 
+
+Line 5: func_definition : type_specifier ID LPAREN parameter_list RPAREN compound_statement
+
+int g(int a,int b){
+e=a+b;
+return e;
+}
+
+Line 5: unit : func_definition
+
+int g(int a,int b){
+e=a+b;
+return e;
+}
+
+Line 5: program : program unit
+
+int d[3],e,f;
+int g(int a,int b){
+e=a+b;
+return e;
+}
+
+Line 6: type_specifier : INT
+
+int
+
+Line 7: type_specifier : INT
+
+int
+
+Line 7: declaration_list : ID
+
+a
+
+Line 7: declaration_list : declaration_list COMMA ID
+
+a,b
+
+Line 7: declaration_list : declaration_list COMMA ID LTHIRD CONST_INT RTHIRD
+
+a,b,c[3]
+
+Line 7: var_declaration : type_specifier declaration_list SEMICOLON
+
+int a,b,c[3];
+
+Line 7: statement : var_declaration
+
+int a,b,c[3];
+
+Line 7: statements : statement
+
+int a,b,c[3];
+
+Line 8: variable : ID
+
+a
+
+Line 8: factor : CONST_INT
+
+3
+
+Line 8: unary_expression : factor
+
+3
+
+Line 8: term : unary_expression
+
+3
+
+Line 8: simple_expression : term
+
+3
+
+Line 8: rel_expression : simple_expression
+
+3
+
+Line 8: logic_expression : rel_expression
+
+3
+
+Line 8: expression : variable ASSIGNOP logic_expression
+
+a=3
+
+Line 8: expression_statement : expression SEMICOLON
+
+a=3;
+
+Line 8: statement : expression_statement
+
+a=3;
+
+Line 8: statements : statements statement
+
+int a,b,c[3];
+a=3;
+
+Line 9: variable : ID
+
+b
+
+Line 9: factor : CONST_INT
+
+2
+
+Line 9: unary_expression : factor
+
+2
+
+Line 9: term : unary_expression
+
+2
+
+Line 9: simple_expression : term
+
+2
+
+Line 9: rel_expression : simple_expression
+
+2
+
+Line 9: logic_expression : rel_expression
+
+2
+
+Line 9: expression : variable ASSIGNOP logic_expression
+
+b=2
+
+Line 9: expression_statement : expression SEMICOLON
+
+b=2;
+
+Line 9: statement : expression_statement
+
+b=2;
+
+Line 9: statements : statements statement
+
+int a,b,c[3];
+a=3;
+b=2;
+
+Line 10: variable : ID
+
+a
+
+Line 10: factor : variable
+
+a
+
+Line 10: unary_expression : factor
+
+a
+
+Line 10: term : unary_expression
+
+a
+
+Line 10: simple_expression : term
+
+a
+
+Line 10: variable : ID
+
+b
+
+Line 10: factor : variable
+
+b
+
+Line 10: unary_expression : factor
+
+b
+
+Line 10: term : unary_expression
+
+b
+
+Line 10: simple_expression : term
+
+b
+
+Line 10: rel_expression : simple_expression RELOP simple_expression
+
+a
+
+Line 10: logic_expression : rel_expression
+
+a
+
+Line 10: expression : logic_expression
+
+a
+
+Line 10: expression_statement : expression SEMICOLON
+
+a;
+
+Line 10: statement : expression_statement
+
+a;
+
+Line 10: statements : statements statement
+
+int a,b,c[3];
+a=3;
+b=2;
+a;
+
+Line 11: variable : ID
+
+a
+
+Line 11: factor : variable
+
+a
+
+Line 11: unary_expression : factor
+
+a
+
+Line 11: term : unary_expression
+
+a
+
+Line 11: simple_expression : term
+
+a
+
+Line 11: variable : ID
+
+b
+
+Line 11: factor : variable
+
+b
+
+Line 11: unary_expression : factor
+
+b
+
+Line 11: term : unary_expression
+
+b
+
+Line 11: simple_expression : term
+
+b
+
+Line 11: rel_expression : simple_expression RELOP simple_expression
+
+a
+
+Line 11: logic_expression : rel_expression
+
+a
+
+Line 11: expression : logic_expression
+
+a
+
+Line 12: variable : ID
+
+a
+
+Line 12: factor : CONST_INT
+
+3
+
+Line 12: unary_expression : factor
+
+3
+
+Line 12: term : unary_expression
+
+3
+
+Line 12: simple_expression : term
+
+3
+
+Line 12: rel_expression : simple_expression
+
+3
+
+Line 12: logic_expression : rel_expression
+
+3
+
+Line 12: expression : variable ASSIGNOP logic_expression
+
+a=3
+
+Line 12: expression_statement : expression SEMICOLON
+
+a=3;
+
+Line 12: statement : expression_statement
+
+a=3;
+
+Line 12: statements : statement
+
+a=3;
+
+Line 13: compound_statement : LCURL statements RCURL
+
+{
+a=3;
+}
+
+ScopeTable # 1.2.1
+
+ScopeTable # 1.2
+7 --> <a, ID> 
+8 --> <b, ID> 
+9 --> <c, ID> 
+
+ScopeTable # 1
+7 --> <main, ID> 
+10 --> <d, ID> 
+11 --> <e, ID> 
+12 --> <f, ID> 
+13 --> <g, ID> 
+
+Line 13: statement : compound_statement
+
+{
+a=3;
+}
+
+Line 14: variable : ID
+
+b
+
+Line 14: factor : CONST_INT
+
+2
+
+Line 14: unary_expression : factor
+
+2
+
+Line 14: term : unary_expression
+
+2
+
+Line 14: simple_expression : term
+
+2
+
+Line 14: rel_expression : simple_expression
+
+2
+
+Line 14: logic_expression : rel_expression
+
+2
+
+Line 14: expression : variable ASSIGNOP logic_expression
+
+b=2
+
+Line 14: expression_statement : expression SEMICOLON
+
+b=2;
+
+Line 14: statement : expression_statement
+
+b=2;
+
+Line 14: statements : statement
+
+b=2;
+
+Line 15: compound_statement : LCURL statements RCURL
+
+{
+b=2;
+}
+
+ScopeTable # 1.2.2
+
+ScopeTable # 1.2
+7 --> <a, ID> 
+8 --> <b, ID> 
+9 --> <c, ID> 
+
+ScopeTable # 1
+7 --> <main, ID> 
+10 --> <d, ID> 
+11 --> <e, ID> 
+12 --> <f, ID> 
+13 --> <g, ID> 
+
+Line 15: statement : compound_statement
+
+{
+b=2;
+}
+
+Line 15: statement : IF LPAREN expression RPAREN statement ELSE statement
+
+if (a) {
+a=3;
+}else
+{
+b=2;
+}
+
+Line 15: statements : statements statement
+
+int a,b,c[3];
+a=3;
+b=2;
+a;
+if (a) {
+a=3;
+}else
+{
+b=2;
+}
+
+Line 18: variable : ID
+
+a
+
+Line 18: factor : variable
+
+a
+
+Line 18: unary_expression : factor
+
+a
+
+Line 18: term : unary_expression
+
+a
+
+Line 18: simple_expression : term
+
+a
+
+Line 18: rel_expression : simple_expression
+
+a
+
+Line 18: logic_expression : rel_expression
+
+a
+
+Line 18: expression : logic_expression
+
+a
+
+Line 18: statement : RETURN expression SEMICOLON
+
+return a;
+
+Line 18: statements : statements statement
+
+int a,b,c[3];
+a=3;
+b=2;
+a;
+if (a) {
+a=3;
+}else
+{
+b=2;
+}
+return a;
+
+Line 19: compound_statement : LCURL statements RCURL
+
+{
+int a,b,c[3];
+a=3;
+b=2;
+a;
+if (a) {
+a=3;
+}else
+{
+b=2;
+}
+return a;
+}
+
+ScopeTable # 1.2
+7 --> <a, ID> 
+8 --> <b, ID> 
+9 --> <c, ID> 
+
+ScopeTable # 1
+7 --> <main, ID> 
+10 --> <d, ID> 
+11 --> <e, ID> 
+12 --> <f, ID> 
+13 --> <g, ID> 
+
+Line 19: func_definition : type_specifier ID LPAREN RPAREN compound_statement
+
+int main(){
+int a,b,c[3];
+a=3;
+b=2;
+a;
+if (a) {
+a=3;
+}else
+{
+b=2;
+}
+return a;
+}
+
+Line 19: unit : func_definition
+
+int main(){
+int a,b,c[3];
+a=3;
+b=2;
+a;
+if (a) {
+a=3;
+}else
+{
+b=2;
+}
+return a;
+}
+
+Line 19: program : program unit
+
+int d[3],e,f;
+int g(int a,int b){
+e=a+b;
+return e;
+}
+int main(){
+int a,b,c[3];
+a=3;
+b=2;
+a;
+if (a) {
+a=3;
+}else
+{
+b=2;
+}
+return a;
+}
+
+ScopeTable # 1
+7 --> <main, ID> 
+10 --> <d, ID> 
+11 --> <e, ID> 
+12 --> <f, ID> 
+13 --> <g, ID> 
+
+Total lines: 19
+Total errors: 0
